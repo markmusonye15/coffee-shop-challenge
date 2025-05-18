@@ -3,20 +3,21 @@
 A comprehensive Python implementation demonstrating object-oriented programming principles with a coffee shop domain featuring Customers, Coffees, and Orders with many-to-many relationships.
 
 ### Features
-   1.Type Validation: Strict type checking for all model attributes
 
-   2.Immutable Properties: Certain properties cannot be modified after initialization
+1.Type Validation: Strict type checking for all model attributes
 
-   3.Relationship Management: Clean handling of many-to-many relationships
+2.Immutable Properties: Certain properties cannot be modified after initialization
 
-   4.Aggregate Methods: Business logic methods like average price calculation
+3.Relationship Management: Clean handling of many-to-many relationships
 
-   5.Bonus Features: Advanced querying capabilities
+4.Aggregate Methods: Business logic methods like average price calculation
+
+5.Bonus Features: Advanced querying capabilities
 
 ### Models
 
-  .Customer
-    
+.Customer
+
     Responsibilities:
 
      a.Track customer information
@@ -25,17 +26,17 @@ A comprehensive Python implementation demonstrating object-oriented programming 
 
      c.Provide insights into customer preferences
 
-   Attributes:
+Attributes:
 
     - name (string, 1-15 characters, mutable)
 
- Relationships:
+Relationships:
 
-  a.Has many Orders
+a.Has many Orders
 
-  b.Has many Coffees through Orders
+b.Has many Coffees through Orders
 
- Methods:
+Methods:
 
      a.orders() - Returns all Order instances for this customer
 
@@ -46,8 +47,8 @@ A comprehensive Python implementation demonstrating object-oriented programming 
      d.most_aficionado(coffee) (classmethod) - Finds top spender for given coffee
 
 . Coffee
-   
-   Responsibilities:
+
+Responsibilities:
 
      a.Track coffee information
 
@@ -55,17 +56,17 @@ A comprehensive Python implementation demonstrating object-oriented programming 
 
      c.Provide sales analytics
 
- Attributes:
+Attributes:
 
      a.name (string, minimum 3 characters, immutable)
 
- Relationships:
+Relationships:
 
      a.Has many Orders
 
      b.Has many Customers through Orders
 
- Methods:
+Methods:
 
      a.orders() - Returns all Order instances for this coffee
 
@@ -76,15 +77,15 @@ A comprehensive Python implementation demonstrating object-oriented programming 
      d.average_price() - Returns mean order price
 
 . Order
- Responsibilities:
+Responsibilities:
 
      a.Link Customers and Coffees
- 
+
      b.Track transaction details
 
      c.Enforce business rules
 
- Attributes:
+Attributes:
 
      a.customer (Customer instance)
 
@@ -92,7 +93,7 @@ A comprehensive Python implementation demonstrating object-oriented programming 
 
      c.price (float, 1.0-10.0, immutable)
 
- Validation Rules:
+Validation Rules:
 
      a.Price must be float type
 
@@ -100,28 +101,31 @@ A comprehensive Python implementation demonstrating object-oriented programming 
 
      c.Cannot be changed after initialization
 
-     
-### Testing
-The project includes comprehensive unit tests. To run them:
 
+
+### Testing
+
+The project includes comprehensive unit tests. To run them:
 
 Run python -m pytest tests/ -v
 Test coverage includes:
 
-  .Model initialization and validation
+.Model initialization and validation
 
-  .Relationship management
+.Relationship management
 
-  .Aggregate methods
+.Aggregate methods
 
-  .Edge cases
+.Edge cases
 
 ### Dependencies
+
 Python 3.8+
 
 pytest (for testing)
 
 ### License
+
 MIT License. See LICENSE for details.
 
 This implementation demonstrates clean object-oriented design with:
@@ -137,4 +141,3 @@ Business logic encapsulation
 Comprehensive validation
 
 Perfect for learning intermediate Python concepts or as a foundation for a coffee shop management system!
-
