@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "hash": {
+      "sha256": "f92f8691d6aca02671b1cab7cd2d2df010a65f09229f71360d1d43462c035e58"
+    },
+    "pipfile-spec": 6,
+    "requires": {
+      "python_version": "3.12"
+    },
+    "sources": [
+      {
+        "name": "pypi",
+        "url": "https://pypi.org/simple",
+        "verify_ssl": true
+      }
+    ]
+  },
+  "default": {
+    "coffee-shop": {
+      "editable": true,
+      "file": "."
+    }
+  },
+  "develop": {}
+}

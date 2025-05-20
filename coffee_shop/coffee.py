@@ -1,14 +1,9 @@
 from __future__ import annotations
-from typing import List, Set, TYPE_CHECKING
-
-if TYPE_CHECKING:
-    from coffee_shop.order import Order
-    from coffee_shop.customer import Customer
+from typing import List, Set
 
 class Coffee:
     def __init__(self, name: str):
         self.name = name
-        self._orders: List[Order] = []
 
     @property
     def name(self) -> str:
@@ -24,16 +19,16 @@ class Coffee:
             raise AttributeError("Coffee name cannot be changed after initialization")
         self._name = value
 
-    def orders(self) -> List[Order]:
-        return self._orders
+    def orders(self) -> List['Order']:
+        from .order import Order  # Local import
+        return [order for order in Order.all if order.coffee == self]
 
-    def customers(self) -> Set[Customer]:
-        return {order.customer for order in self._orders}
+    def customers(self) -> Set['Customer']:
+        return list({order.customer for order in self.orders()})
 
     def num_orders(self) -> int:
-        return len(self._orders)
+        return len(self.orders())
 
     def average_price(self) -> float:
-        if not self._orders:
-            return 0
-        return sum(order.price for order in self._orders) / len(self._orders)
+        prices = [order.price for order in self.orders()]
+        return sum(prices) / len(prices) if prices else 0
