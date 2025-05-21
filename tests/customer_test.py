@@ -12,20 +12,20 @@ class TestCustomer:
     
     def test_name_validation(self):
         """Test name property validation"""
-        # Valid names
+        
         customer1 = Customer("Alice")
         customer2 = Customer("Bob Smith")
         
         assert customer1.name == "Alice"
         assert customer2.name == "Bob Smith"
         
-        # Test type validation
+        
         with pytest.raises(TypeError):
             Customer(123)  # Not a string
         with pytest.raises(TypeError):
             Customer(None)  # None type
             
-        # Test length validation
+        
         with pytest.raises(ValueError):
             Customer("")  # Too short
         with pytest.raises(ValueError):
@@ -69,7 +69,7 @@ class TestCustomer:
         assert order.coffee == coffee
         assert order.price == 3.5
         
-        # Test price validation
+        
         with pytest.raises(ValueError):
             customer.create_order(coffee, 0.9)  # Below minimum
         with pytest.raises(ValueError):

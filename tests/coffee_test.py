@@ -17,16 +17,16 @@ class TestCoffee:
     
     def test_name_validation(self):
         """Test name validation rules"""
-        # Test valid names
-        Coffee("Esp")  # Minimum length
-        Coffee("Cappuccino")  # Normal case
         
-        # Test invalid names
+        Coffee("Esp")  
+        Coffee("Cappuccino")  
+        
+        
         with pytest.raises(TypeError):
-            Coffee(123)  # Not a string
+            Coffee(123)  
             
         with pytest.raises(ValueError):
-            Coffee("A")  # Too short
+            Coffee("A")  
     
     def test_name_immutability(self):
         """Test that name cannot be changed after initialization"""
@@ -54,20 +54,20 @@ class TestCoffee:
         customer1 = Customer("Grace")
         customer2 = Customer("Henry")
         
-        # Create orders - some from same customer
+        
         Order(customer1, coffee, 3.5)
-        Order(customer1, coffee, 4.0)  # Same customer again
-        Order(customer2, coffee, 4.5)  # Different customer
+        Order(customer1, coffee, 4.0)  
+        Order(customer2, coffee, 4.5)  
         
         customers = coffee.customers()
-        assert len(customers) == 2  # Should be unique
+        assert len(customers) == 2 
         assert customer1 in customers
         assert customer2 in customers
     
     def test_num_orders(self):
         """Test num_orders method"""
         coffee = Coffee("Cold Brew")
-        assert coffee.num_orders() == 0  # Initially zero
+        assert coffee.num_orders() == 0  
         
         customer = Customer("Ivy")
         Order(customer, coffee, 4.5)
